@@ -23,7 +23,8 @@ public class Hotel {
 		Scanner scan = new Scanner(System.in);
 		int index = 0;
 		boolean go = true;
-
+		// 주석도 올라가나요?
+		int test = 0;
 		if (isCleaner) {
 			try {
 				System.out.println("1.청소 필요방 조회\n2.나가기");
