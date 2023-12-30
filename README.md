@@ -5,7 +5,7 @@
 <div align=right> 
 <img src = "https://img.shields.io/badge/Java-007396?style=flat&logo=OpenJDK&logoColor=white">
   <img src = "https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=eclipse&logoColor=white">
- <img src = " https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
+ <img src = "https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
 </div>
   
 ## 프로젝트 설명
