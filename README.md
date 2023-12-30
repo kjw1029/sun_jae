@@ -1,6 +1,6 @@
 # 호텔프로젝트_리팩토링
 > 기존에 진행한 프로젝트를 리팩토링 하였습니다.
-> <div align=right> 
+<div align=right> 
 <img src = "https://img.shields.io/badge/Java-007396?style=flat&logo=OpenJDK&logoColor=white">
   <img src = "https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=eclipse&logoColor=white">
  <img src = "https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
