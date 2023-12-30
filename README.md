@@ -4,7 +4,7 @@
 ## 프로젝트 제목
 - 사용언어
 <div align=right> 
-![](https://img.shields.io/badge/Java-007396?style=flat&logo=OpenJDK&logoColor=white")
+<img src = "https://img.shields.io/badge/Java-007396?style=flat&logo=OpenJDK&logoColor=white">
 </div>
   
 ## 프로젝트 설명
