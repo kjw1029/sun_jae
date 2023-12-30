@@ -3,7 +3,7 @@
 ***
 ## 프로젝트 제목
 - 사용언어         
-![](https://img.shields.io/badge/Java-007396?style=flat&logo=OpenJDK&logoColor=white")
+-:![](https://img.shields.io/badge/Java-007396?style=flat&logo=OpenJDK&logoColor=white")
 ## 프로젝트 설명
 - 프로젝트를 진행하면서 아쉬웠던 부분들을 전반적으로 수정
 - 프로젝트 완성후 알게 된 상속 개념 연습
