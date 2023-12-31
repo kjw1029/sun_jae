@@ -16,7 +16,7 @@ public class Hotel {
 		Scanner scan = new Scanner(System.in);
 		int index = 0;
 		boolean go = true;
-
+		// 청소부 로그인일 때
 		if (isCleaner) {
 			try {
 				System.out.println("1.청소 필요방 조회\n2.나가기");
@@ -75,7 +75,7 @@ public class Hotel {
 			return totalAmount;
 
 		}
-
+		// 데스크 전체적인 메뉴
 		while (go) {
 			System.out.println();
 			System.out.println("---------------------------- 메뉴 ----------------------------");// 59
@@ -84,7 +84,7 @@ public class Hotel {
 			System.out.println("3. 예약변경");
 			System.out.println("4. 워크인/체크인/체크아웃");
 			System.out.println("5. 로그아웃");
-
+			//예약
 			int input = scan.nextInt();
 			switch (input) {
 			case 1:
@@ -99,7 +99,7 @@ public class Hotel {
 				reservationList[index] = new ReservationPerson(guestName, phoneNumber, "예약");
 
 				String roomType = scan.next();
-
+				// 싱글방 출력
 				if (roomType.equals("싱글")) {
 					System.out.println("------------------------ 현재 비어있는 방 ------------------------");
 					for (int i = 0; i < RF.length; i++) {
@@ -115,16 +115,17 @@ public class Hotel {
 					}
 					System.out.println(
 							"-------------------------------------------------------------------------------------------------------------------------");
+					// 호실예약 입력
 					System.out.println("예약할 호실을 입력하세요[000]");
 					int inputUnit = scan.nextInt();
 					int floor = inputUnit / 100;
 					int unit = inputUnit % 100;
-
+					// 청소가 안되어있을시
 					if (!RF[floor - 2][unit - 1].getCleanFlag() && !RF[floor - 2][unit - 1].getRoomStatus().isEmpty() && !"".equals(RF[floor - 2][unit - 1].getRoomStatus())) {
 						System.out.println("아직 청소가 완료되지 않은 객실입니다.\n다른 객실로 예약하시길 바랍니다.");
 						break;
 					}
-
+					// 범위 입력
 					if (inputUnit > 520 || inputUnit < 201) {
 						System.out.println("올바른 호실을 입력하세요.");
 						break;
@@ -140,8 +141,6 @@ public class Hotel {
 					} else if (inputUnit % 2 == 0) {
 						System.out.println("올바른 호실을 입력하세요.");
 						break;
-
-						// 이미 예약된 방에 중복 예약 가능
 					} else if (RF[floor - 2][unit - 1].getReservationStatus().equals("예약완료")) {
 						System.out.println("잘못된 입력입니다.");
 						break;
@@ -155,7 +154,7 @@ public class Hotel {
 						index++;
 						break;
 					}
-
+					// 더블 출력
 				} else if (roomType.equals("더블")) {
 					System.out.println("------------------------ 현재 비어있는 방 ------------------------");
 					for (int i = 0; i < RF.length; i++) {
@@ -171,6 +170,7 @@ public class Hotel {
 					}
 					System.out.println(
 							"-------------------------------------------------------------------------------------------------------------------------");
+					// 호실 입력
 					System.out.println("예약할 호실을 입력하세요[000]");
 					int inputUnit = scan.nextInt();
 					int floor = inputUnit / 100;
@@ -190,8 +190,6 @@ public class Hotel {
 					} else if (inputUnit % 2 != 0) {
 						System.out.println("올바른 호실을 입력하세요.");
 						break;
-
-						// 이미 예약된 방에 중복 예약 가능
 					} else if (RF[floor - 2][unit - 1].getReservationStatus().equals("예약완료")) {
 						System.out.println("잘못된 입력입니다.");
 						break;
@@ -219,7 +217,7 @@ public class Hotel {
 				String reservationName = scan.next();
 				System.out.print("연락처: ");
 				String reservationPhoneNumber = scan.next();
-
+				
 				for (int i = 0; i < reservationList.length; i++) {
 					if (reservationList[i] != null && reservationList[i].getName().equals(reservationName)
 							&& reservationList[i].getPhoneNumber().equals(reservationPhoneNumber)
@@ -408,14 +406,14 @@ public class Hotel {
 					}
 
 				case 2:
-
+					//체크인
 					System.out.println();
 					System.out.println("------- 체크인 --------");
 					System.out.print("고객명: ");
 					reservationName = scan.next();
 					System.out.print("연락처: ");
 					reservationPhoneNumber = scan.next();
-
+					
 					int checkIncheck = 0;
 					for (int i = 0; i < reservationList.length; i++) {
 						if (reservationList[i] != null && reservationList[i].getName().equals(reservationName)
@@ -450,7 +448,7 @@ public class Hotel {
 							System.out.println("올바른 고객번호를 입력하세요.");
 						}
 					}
-
+					// 예약자를 찾아서 없을시 정보없다고 출력
 					for (int i = 0; i < reservationList.length; i++) {
 						if (reservationList[i] != null && reservationList[i].getName().equals(reservationName) && reservationList[i].getPhoneNumber().equals(reservationPhoneNumber)) {
 							break;
@@ -473,7 +471,7 @@ public class Hotel {
 					break;
 
 				case 3:
-
+					// 체크아웃
 					System.out.println("체크아웃할 호실을 입력하세요[000]");
 					int inputUnit = scan.nextInt();
 					int floor = inputUnit / 100;

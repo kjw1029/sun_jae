@@ -6,7 +6,8 @@ public class RoomInfo {
 	private String reservationStatus;
 	private String roomStatus; // 체크인, 체크아웃, 워크인
 	private boolean isClean; // 청소유무 체크
-
+	
+	// 방 생성자
 	public RoomInfo(int unit, int amount, String roomType, String reservationStatus, String roomStatus,
 			boolean isClean) {
 		this.unit = unit;
@@ -16,7 +17,7 @@ public class RoomInfo {
 		this.roomStatus = roomStatus;
 		this.isClean = isClean;
 	}
-
+	// 방 배열 생성
 	public static RoomInfo[][] totalRoom() {
 		RoomInfo[][] RF = new RoomInfo[4][20];
 		for (int i = 0; i < RF.length; i++) {
