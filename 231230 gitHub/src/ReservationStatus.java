@@ -1,4 +1,4 @@
-
+// 클래스 자체 삭제 예정
 import java.util.Scanner;
 
 public class ReservationStatus {
