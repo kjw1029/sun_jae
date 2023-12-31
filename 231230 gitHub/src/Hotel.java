@@ -14,7 +14,7 @@ public class Hotel {
 
 		Scanner scan = new Scanner(System.in);
 		int index = 0;
-		boolean go = true;
+		boolean go = true; 
 		// 청소부 로그인일 때
 		if (isCleaner) {
 			try {
