@@ -5,41 +5,5 @@ public class Truemain {
 		LoginProgram loginProgram = new LoginProgram();
 		
 		loginProgram.loginStart();
-		System.out.println("test");
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-여기?
