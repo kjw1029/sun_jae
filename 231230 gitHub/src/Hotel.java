@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Hotel {
-
 	public static int roomCount = 80;
 	public static ReservationPerson[] reservationList = new ReservationPerson[roomCount];
 	public static RoomInfo[][] RF = RoomInfo.totalRoom();
