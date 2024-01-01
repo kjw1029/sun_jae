@@ -30,9 +30,9 @@ public class Hotel {
 				for (int i = 0; i < RF.length; i++) {
 					System.out.print(i + 2 + "층: ");
 					for (int j = 0; j < RF[i].length; j++) {
-						if (RF != null && RF[i][j].getCleanFlag() == false) {
+						if (RF != null && RF[i][j].isClean() == false) {
 							System.out.print(RF[i][j].getUnit() + "호");
-							System.out.print("[" + RF[i][j].getRoomType() + "] ");
+							System.out.print("[" + RF[i][j].getRoomtype() + "] ");
 							System.out.print("\t");
 						}
 					}
@@ -45,7 +45,7 @@ public class Hotel {
 				int cInputUnit = scan.nextInt();
 				int cFloor = cInputUnit / 100;
 				int cUnit = cInputUnit % 100;
-				if (RF[cFloor - 2][cUnit - 1].getCleanFlag() == true) {
+				if (RF[cFloor - 2][cUnit - 1].isClean() == true) {
 					System.out.println("현재 사용중인 방 혹은 청소가 불필요한 방입니다.");
 					throw new Exception();
 
@@ -104,9 +104,9 @@ public class Hotel {
 					for (int i = 0; i < RF.length; i++) {
 						System.out.print(i + 2 + "층: ");
 						for (int j = 0; j < RF[i].length; j++) {
-							if (RF != null && RF[i][j].getReservationStatus().equals("빈방") && RF[i][j].getRoomType().equals("싱글")) {
+							if (RF != null && RF[i][j].getRoomStatus().equals("빈방") && RF[i][j].getRoomtype().equals("싱글")) {
 								System.out.print(RF[i][j].getUnit() + "호");
-								System.out.print("[" + RF[i][j].getRoomType() + "] ");
+								System.out.print("[" + RF[i][j].getRoomtype() + "] ");
 								System.out.print("\t");
 							}
 						}
@@ -120,7 +120,7 @@ public class Hotel {
 					int floor = inputUnit / 100;
 					int unit = inputUnit % 100;
 					// 청소가 안되어있을시
-					if (!RF[floor - 2][unit - 1].getCleanFlag() && !RF[floor - 2][unit - 1].getRoomStatus().isEmpty() && !"".equals(RF[floor - 2][unit - 1].getRoomStatus())) {
+					if (!RF[floor - 2][unit - 1].isClean() && !RF[floor - 2][unit - 1].getRoomStatus().isEmpty() && !"".equals(RF[floor - 2][unit - 1].getRoomStatus())) {
 						System.out.println("아직 청소가 완료되지 않은 객실입니다.\n다른 객실로 예약하시길 바랍니다.");
 						break;
 					}
@@ -140,15 +140,15 @@ public class Hotel {
 					} else if (inputUnit % 2 == 0) {
 						System.out.println("올바른 호실을 입력하세요.");
 						break;
-					} else if (RF[floor - 2][unit - 1].getReservationStatus().equals("예약완료")) {
+					} else if (RF[floor - 2][unit - 1].getRoomStatus().equals("예약완료")) {
 						System.out.println("잘못된 입력입니다.");
 						break;
-					} else if (RF[floor - 2][unit - 1].getReservationStatus().equals("숙박중")) {
+					} else if (RF[floor - 2][unit - 1].getRoomStatus().equals("숙박중")) {
 						System.out.println("잘못된 입력입니다.");
 						break;
 					} else {
-						RF[floor - 2][unit - 1].setReservationStatus("예약완료");
-						System.out.println(RF[floor - 2][unit - 1].getReservationStatus());
+						RF[floor - 2][unit - 1].setRoomStatus("예약완료");
+						System.out.println(RF[floor - 2][unit - 1].getRoomStatus());
 						reservationList[index].setRoomUnit((floor * 100) + unit);
 						index++;
 						break;
@@ -159,9 +159,9 @@ public class Hotel {
 					for (int i = 0; i < RF.length; i++) {
 						System.out.print(i + 2 + "층: ");
 						for (int j = 0; j < RF[i].length; j++) {
-							if (RF != null && RF[i][j].getReservationStatus().equals("빈방") && RF[i][j].getRoomType().equals("더블")) {
+							if (RF != null && RF[i][j].getRoomStatus().equals("빈방") && RF[i][j].getRoomtype().equals("더블")) {
 								System.out.print(RF[i][j].getUnit() + "호");
-								System.out.print("[" + RF[i][j].getRoomType() + "] ");
+								System.out.print("[" + RF[i][j].getRoomtype() + "] ");
 								System.out.print("\t");
 							}
 						}
@@ -189,15 +189,15 @@ public class Hotel {
 					} else if (inputUnit % 2 != 0) {
 						System.out.println("올바른 호실을 입력하세요.");
 						break;
-					} else if (RF[floor - 2][unit - 1].getReservationStatus().equals("예약완료")) {
+					} else if (RF[floor - 2][unit - 1].getRoomStatus().equals("예약완료")) {
 						System.out.println("잘못된 입력입니다.");
 						break;
-					} else if (RF[floor - 2][unit - 1].getReservationStatus().equals("숙박중")) {
+					} else if (RF[floor - 2][unit - 1].getRoomStatus().equals("숙박중")) {
 						System.out.println("잘못된 입력입니다.");
 						break;
 					} else {
-						RF[floor - 2][unit - 1].setReservationStatus("예약완료");
-						System.out.println(RF[floor - 2][unit - 1].getReservationStatus());
+						RF[floor - 2][unit - 1].setRoomStatus("예약완료");
+						System.out.println(RF[floor - 2][unit - 1].getRoomStatus());
 						reservationList[index].setRoomUnit((floor * 100) + unit);
 						index++;
 						break;
@@ -225,15 +225,15 @@ public class Hotel {
 						System.out.println("고객명: " + reservationList[i].getName());
 						System.out.println("연락처: " + reservationList[i].getPhoneNumber());
 						System.out.print(reservationList[i].getRoomUnit() + "호");
-						System.out.println("[" + RF[reservationList[i].getRoomUnit() / 100 - 2][reservationList[i].getRoomUnit() % 100- 1].getRoomType() + "]");
+						System.out.println("[" + RF[reservationList[i].getRoomUnit() / 100 - 2][reservationList[i].getRoomUnit() % 100- 1].getRoomtype() + "]");
 						System.out.println(
 								RF[reservationList[i].getRoomUnit() / 100 - 2][reservationList[i].getRoomUnit() % 100
-										- 1].getAmount() + "원");
+										- 1].getPrice() + "원");
 
 						// 중복 예약 불가 개선
 						// 고객 상태 확인
 						if (RF[reservationList[i].getRoomUnit() / 100 - 2][reservationList[i].getRoomUnit() % 100 - 1].getRoomStatus().equals("체크아웃")
-								&& RF[reservationList[i].getRoomUnit() / 100 - 2][reservationList[i].getRoomUnit() % 100- 1].getReservationStatus().equals("예약완료")) {
+								&& RF[reservationList[i].getRoomUnit() / 100 - 2][reservationList[i].getRoomUnit() % 100- 1].getRoomStatus().equals("예약완료")) {
 							System.out.println("예약완료");
 						} else {
 							System.out.println(RF[reservationList[i].getRoomUnit() / 100 - 2][reservationList[i].getRoomUnit() % 100 - 1].getRoomStatus() + " 완료");
@@ -272,7 +272,7 @@ public class Hotel {
 					if (reservationList[i] != null && reservationList[i].getName().equals(reservationName) && reservationList[i].getPhoneNumber().equals(reservationPhoneNumber)) {
 						int floor = reservationList[i].getRoomUnit() / 100;
 						int unit = reservationList[i].getRoomUnit() % 100;
-						RF[floor - 2][unit - 1].setReservationStatus("빈방");
+						RF[floor - 2][unit - 1].setRoomStatus("빈방");
 						RF[floor - 2][unit - 1].setClean(true);
 						reservationList[i] = null;
 					}
@@ -300,9 +300,9 @@ public class Hotel {
 						for (int i = 0; i < RF.length; i++) {
 							System.out.print(i + 2 + "층: ");
 							for (int j = 0; j < RF[i].length; j++) {
-								if (RF != null && RF[i][j].getReservationStatus().equals("빈방") && RF[i][j].getRoomType().equals("싱글")) {
+								if (RF != null && RF[i][j].getRoomStatus().equals("빈방") && RF[i][j].getRoomtype().equals("싱글")) {
 									System.out.print(RF[i][j].getUnit() + "호");
-									System.out.print("[" + RF[i][j].getRoomType() + "] ");
+									System.out.print("[" + RF[i][j].getRoomtype() + "] ");
 									System.out.print("\t");
 								}
 							}
@@ -331,16 +331,16 @@ public class Hotel {
 							break;
 
 							// 이미 예약된 방에 중복 예약 가능
-						} else if (RF[floor - 2][unit - 1].getReservationStatus().equals("예약완료")) {
+						} else if (RF[floor - 2][unit - 1].getRoomStatus().equals("예약완료")) {
 							System.out.println("잘못된 입력입니다.");
 							break;
-						} else if (RF[floor - 2][unit - 1].getReservationStatus().equals("숙박중")) {
+						} else if (RF[floor - 2][unit - 1].getRoomStatus().equals("숙박중")) {
 							System.out.println("잘못된 입력입니다.");
 							break;
 						} else {
-							RF[floor - 2][unit - 1].setReservationStatus("숙박중");
+							RF[floor - 2][unit - 1].setRoomStatus("숙박중");
 							RF[floor - 2][unit - 1].setRoomStatus("워크인");
-							System.out.println(RF[floor - 2][unit - 1].getReservationStatus());
+							System.out.println(RF[floor - 2][unit - 1].getRoomStatus());
 							System.out.println(RF[floor - 2][unit - 1].getRoomStatus());
 							reservationList[index].setRoomUnit((floor * 100) + unit);
 							index++;
@@ -352,9 +352,9 @@ public class Hotel {
 						for (int i = 0; i < RF.length; i++) {
 							System.out.print(i + 2 + "층: ");
 							for (int j = 0; j < RF[i].length; j++) {
-								if (RF != null && RF[i][j].getReservationStatus().equals("빈방") && RF[i][j].getRoomType().equals("더블")) {
+								if (RF != null && RF[i][j].getRoomStatus().equals("빈방") && RF[i][j].getRoomtype().equals("더블")) {
 									System.out.print(RF[i][j].getUnit() + "호");
-									System.out.print("[" + RF[i][j].getRoomType() + "] ");
+									System.out.print("[" + RF[i][j].getRoomtype() + "] ");
 									System.out.print("\t");
 								}
 							}
@@ -383,16 +383,16 @@ public class Hotel {
 							break;
 
 							// 이미 예약된 방에 중복 예약 가능
-						} else if (RF[floor - 2][unit - 1].getReservationStatus().equals("예약완료")) {
+						} else if (RF[floor - 2][unit - 1].getRoomStatus().equals("예약완료")) {
 							System.out.println("잘못된 입력입니다.");
 							break;
-						} else if (RF[floor - 2][unit - 1].getReservationStatus().equals("숙박중")) {
+						} else if (RF[floor - 2][unit - 1].getRoomStatus().equals("숙박중")) {
 							System.out.println("잘못된 입력입니다.");
 							break;
 						} else {
-							RF[floor - 2][unit - 1].setReservationStatus("숙박중");
+							RF[floor - 2][unit - 1].setRoomStatus("숙박중");
 							RF[floor - 2][unit - 1].setRoomStatus("워크인");
-							System.out.println(RF[floor - 2][unit - 1].getReservationStatus());
+							System.out.println(RF[floor - 2][unit - 1].getRoomStatus());
 							System.out.println(RF[floor - 2][unit - 1].getRoomStatus());
 							reservationList[index].setRoomUnit((floor * 100) + unit);
 							index++;
@@ -417,15 +417,15 @@ public class Hotel {
 					for (int i = 0; i < reservationList.length; i++) {
 						if (reservationList[i] != null && reservationList[i].getName().equals(reservationName)
 								&& reservationList[i].getPhoneNumber().equals(reservationPhoneNumber)
-								&& RF[reservationList[i].getRoomUnit() / 100 - 2][reservationList[i].getRoomUnit() % 100 - 1].getReservationStatus().equals("예약완료")) {
+								&& RF[reservationList[i].getRoomUnit() / 100 - 2][reservationList[i].getRoomUnit() % 100 - 1].getRoomStatus().equals("예약완료")) {
 							System.out.println("-------------------------- 예약 확인 --------------------------");
 							System.out.println(i + 1 + "번 고객님");
 							System.out.println("고객명: " + reservationList[i].getName());
 							System.out.println("연락처: " + reservationList[i].getPhoneNumber());
 							System.out.print(reservationList[i].getRoomUnit() + "호");
-							System.out.println("["+ RF[reservationList[i].getRoomUnit() / 100- 2][reservationList[i].getRoomUnit() % 100 - 1].getRoomType() + "]");
+							System.out.println("["+ RF[reservationList[i].getRoomUnit() / 100- 2][reservationList[i].getRoomUnit() % 100 - 1].getRoomtype() + "]");
 							System.out.println(RF[reservationList[i].getRoomUnit() / 100
-									- 2][reservationList[i].getRoomUnit() % 100 - 1].getAmount() + "원");
+									- 2][reservationList[i].getRoomUnit() % 100 - 1].getPrice() + "원");
 							checkIncheck++;
 							// 중복 예약 불가 개선
 						}
@@ -439,9 +439,9 @@ public class Hotel {
 							int checkInRoomUnit = reservationList[inputCheckIn - 1].getRoomUnit();
 							int floor = checkInRoomUnit / 100;
 							int unit = checkInRoomUnit % 100;
-							RF[floor - 2][unit - 1].setReservationStatus("숙박중");
+							RF[floor - 2][unit - 1].setRoomStatus("숙박중");
 							RF[floor - 2][unit - 1].setRoomStatus("체크인");
-							System.out.println(RF[floor - 2][unit - 1].getReservationStatus());
+							System.out.println(RF[floor - 2][unit - 1].getRoomStatus());
 							System.out.println(RF[floor - 2][unit - 1].getRoomStatus());
 						} else {
 							System.out.println("올바른 고객번호를 입력하세요.");
@@ -490,22 +490,22 @@ public class Hotel {
 					}
 
 					RF[floor - 2][unit - 1].setClean(false);
-					System.out.println(RF[floor - 2][unit - 1].getReservationStatus());
+					System.out.println(RF[floor - 2][unit - 1].getRoomStatus());
 					System.out.println(RF[floor - 2][unit - 1].getRoomStatus());
 
 					if (RF[floor - 2][unit - 1].getRoomStatus().equals("체크인") || RF[floor - 2][unit - 1].getRoomStatus().equals("워크인")
-							&& RF[floor - 2][unit - 1].getReservationStatus().equals("숙박중")) {
+							&& RF[floor - 2][unit - 1].getRoomStatus().equals("숙박중")) {
 						RF[floor - 2][unit - 1].setRoomStatus("체크아웃");
 						RF[floor - 2][unit - 1].setClean(false);
-						System.out.println(RF[floor - 2][unit - 1].getReservationStatus());
+						System.out.println(RF[floor - 2][unit - 1].getRoomStatus());
 						System.out.println(RF[floor - 2][unit - 1].getRoomStatus());
 
-						if ("싱글".equals(RF[floor - 2][unit - 1].getRoomType()) && "체크아웃".equals(RF[floor - 2][unit - 1].getRoomStatus())) {
-							totalAmount[0] = totalAmount[0] + RF[floor - 2][unit - 1].getAmount();
-							totalAmount[2] = totalAmount[0] / RF[floor - 2][unit - 1].getAmount();
-						} else if ("더블".equals(RF[floor - 2][unit - 1].getRoomType()) && "체크아웃".equals(RF[floor - 2][unit - 1].getRoomStatus())) {
-							totalAmount[1] = totalAmount[1] + RF[floor - 2][unit - 1].getAmount();
-							totalAmount[3] = totalAmount[1] / RF[floor - 2][unit - 1].getAmount();
+						if ("싱글".equals(RF[floor - 2][unit - 1].getRoomtype()) && "체크아웃".equals(RF[floor - 2][unit - 1].getRoomStatus())) {
+							totalAmount[0] = totalAmount[0] + RF[floor - 2][unit - 1].getPrice();
+							totalAmount[2] = totalAmount[0] / RF[floor - 2][unit - 1].getPrice();
+						} else if ("더블".equals(RF[floor - 2][unit - 1].getRoomtype()) && "체크아웃".equals(RF[floor - 2][unit - 1].getRoomStatus())) {
+							totalAmount[1] = totalAmount[1] + RF[floor - 2][unit - 1].getPrice();
+							totalAmount[3] = totalAmount[1] / RF[floor - 2][unit - 1].getPrice();
 						}
 					} else {
 						System.out.println("오류");
