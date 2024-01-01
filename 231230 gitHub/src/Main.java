@@ -9,12 +9,12 @@ public class Main {
 	private static Person desk = new Desk("데스크", "데스1234");
 	private static Person cleaner = new Cleaner("청소", "청소1234");
 	private static Person[] customer = new Customer[80];
-
+	static	Person[] employee = new Person[] {(Employee) manager, (Employee) desk, (Employee) cleaner};
 	public static void main(String[] args) {
-		Person[] employee = new Person[3];
-		employee[0] = (Employee) manager;
-		employee[1] = (Employee) desk;
-		employee[2] = (Employee) cleaner;
+
+//		employee[0] = (Employee) manager;
+//		employee[1] = (Employee) desk;
+//		employee[2] = (Employee) cleaner;
 		System.out.println(employee[0].getName());
 
 		boolean go = true;
