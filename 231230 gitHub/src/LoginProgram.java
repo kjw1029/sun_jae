@@ -45,6 +45,7 @@ public class LoginProgram {
 //						chkoutInfo = ((Manager)manager).hotel(false);
 						chkoutInfo = hotel.hotel(false);
 					} else if (Asellect == 2) {
+						workInAndOutSet(username.equals(manager.getName()), username);
 //						workInAndOutSet(loggedInUser.isAdmin(), loggedInUser.getUsername());
 					} else if (Asellect == 3) {
 						// 매출관리
@@ -70,6 +71,7 @@ public class LoginProgram {
 						
 //						chkoutInfo = hotel.hotel(false);
 					} else if (Dsellect == 2) {
+						workInAndOutSet(username.equals(manager.getName()), username);
 //						workInAndOutSet(loggedInUser.isAdmin(), loggedInUser.getUsername()); // 데스크 청소용 출퇴근
 
 					} else if (Dsellect == 3) {
@@ -90,6 +92,7 @@ public class LoginProgram {
 					if (csellect == 1) {
 						hotel.hotel(true);
 					} else if (csellect == 2) {
+						workInAndOutSet(username.equals(manager.getName()), username);
 //						workInAndOutSet(loggedInUser.isAdmin(), loggedInUser.getUsername()); // 데스크 청소용 출퇴근
 
 					} else if (csellect == 3) {
