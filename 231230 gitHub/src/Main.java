@@ -19,7 +19,8 @@ public class Main {
 
 		boolean go = true;
 
-		Person loggedInUser = new Person("", "");
+		Employee loggedInUser = new Employee("", "");
+//		Person loggedInUser = new Person("", "");
 //		
 		System.out.print("사용자 이름을 입력하세요: ");
 		String username = scanner.next();
@@ -34,7 +35,7 @@ public class Main {
 			if (loggedInUser instanceof Manager) {
 //								Manager down = (Manager) loggedInUser;
 				System.out.println("dd");
-				((Manager) loggedInUser).LoginStart();
+//				((Manager) loggedInUser).LoginStart();
 			}
 		}
 //					} catch {
