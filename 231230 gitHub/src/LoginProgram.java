@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class LoginProgram {
 
 	public static Scanner scanner = new Scanner(System.in);
-	public static LoginManager loginManager = new LoginManager(3); // 최대 10명의 사용자를 저장할 수 있는 배열
+	public static Employee.LoginManager loginManager = new Employee.LoginManager(3); // 최대 10명의 사용자를 저장할 수 있는 배열
 	public static Hotel hotel = new Hotel();
 	public static int[] chkoutInfo = new int[4];
 	public static boolean isDebug = true;

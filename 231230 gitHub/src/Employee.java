@@ -22,7 +22,7 @@ public class Employee extends Person {
 	public void LoginStart() {
 	}
 
-	class LoginManager {
+	static class LoginManager {
 		private User[] users;
 		private int userCount;
 
