@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Desk extends Employee {
 	public static int roomCount = 80;
-	public static ReservationPerson[] reservationList = new ReservationPerson[roomCount];
+	public static Customer[] reservationList = new Customer[roomCount];
 	public static RoomInfo[][] RF = RoomInfo.totalRoom();
 	public static int totalAmount[] = new int[4];
 	int inputUnit;
@@ -124,7 +124,7 @@ public class Desk extends Employee {
 				String phoneNumber = scan.next();
 				System.out.print("방 타입[싱글/더블]: ");
 
-				reservationList[index] = new ReservationPerson(guestName, phoneNumber, "예약");
+				reservationList[index] = new Customer(guestName, phoneNumber, "예약");
 
 				String roomType = scan.next();
 				// 싱글방 출력
@@ -251,11 +251,11 @@ public class Desk extends Employee {
 
 				for (int i = 0; i < reservationList.length; i++) {
 					if (reservationList[i] != null && reservationList[i].getName().equals(reservationName)
-							&& reservationList[i].getPhoneNumber().equals(reservationPhoneNumber)
+							&& reservationList[i].getNumber().equals(reservationPhoneNumber)
 							&& reservationList[i].getReservationState().equals("예약")) {
 						System.out.println("-------------------------- 예약 확인 --------------------------");
 						System.out.println("고객명: " + reservationList[i].getName());
-						System.out.println("연락처: " + reservationList[i].getPhoneNumber());
+						System.out.println("연락처: " + reservationList[i].getNumber());
 						System.out.print(reservationList[i].getRoomUnit() + "호");
 						System.out.println("["
 								+ RF[reservationList[i].getRoomUnit() / 100 - 2][reservationList[i].getRoomUnit() % 100
@@ -281,12 +281,12 @@ public class Desk extends Employee {
 
 				for (int i = 0; i < reservationList.length; i++) {
 					if (reservationList[i] != null && reservationList[i].getName().equals(reservationName)
-							&& reservationList[i].getPhoneNumber().equals(reservationPhoneNumber)) {
+							&& reservationList[i].getNumber().equals(reservationPhoneNumber)) {
 						break;
 					} else if (reservationList[i] != null && reservationList[i].getName().equals(reservationName)) {
 
 					} else if (reservationList[i] != null
-							&& reservationList[i].getPhoneNumber().equals(reservationPhoneNumber)) {
+							&& reservationList[i].getNumber().equals(reservationPhoneNumber)) {
 					} else {/*
 							 * if (reservationList[i] == null ||
 							 * !reservationList[i].getName().equals(reservationName) ||
@@ -310,7 +310,7 @@ public class Desk extends Employee {
 
 				for (int i = 0; i < reservationList.length; i++) {
 					if (reservationList[i] != null && reservationList[i].getName().equals(reservationName)
-							&& reservationList[i].getPhoneNumber().equals(reservationPhoneNumber)) {
+							&& reservationList[i].getNumber().equals(reservationPhoneNumber)) {
 						int floor = reservationList[i].getRoomUnit() / 100;
 						int unit = reservationList[i].getRoomUnit() % 100;
 						RF[floor - 2][unit - 1].setRoomStatus("빈방");
@@ -333,7 +333,7 @@ public class Desk extends Employee {
 					phoneNumber = scan.next();
 					System.out.print("방 타입[싱글/더블]: ");
 
-					reservationList[index] = new ReservationPerson(guestName, phoneNumber, "예약");
+					reservationList[index] = new Customer(guestName, phoneNumber, "예약");
 
 					roomType = scan.next();
 					if (roomType.equals("싱글")) {
@@ -459,13 +459,13 @@ public class Desk extends Employee {
 					int checkIncheck = 0;
 					for (int i = 0; i < reservationList.length; i++) {
 						if (reservationList[i] != null && reservationList[i].getName().equals(reservationName)
-								&& reservationList[i].getPhoneNumber().equals(reservationPhoneNumber)
+								&& reservationList[i].getNumber().equals(reservationPhoneNumber)
 								&& RF[reservationList[i].getRoomUnit() / 100 - 2][reservationList[i].getRoomUnit() % 100
 										- 1].getRoomStatus().equals("예약완료")) {
 							System.out.println("-------------------------- 예약 확인 --------------------------");
 							System.out.println(i + 1 + "번 고객님");
 							System.out.println("고객명: " + reservationList[i].getName());
-							System.out.println("연락처: " + reservationList[i].getPhoneNumber());
+							System.out.println("연락처: " + reservationList[i].getNumber());
 							System.out.print(reservationList[i].getRoomUnit() + "호");
 							System.out
 									.println("["
@@ -498,12 +498,12 @@ public class Desk extends Employee {
 					// 예약자를 찾아서 없을시 정보없다고 출력
 					for (int i = 0; i < reservationList.length; i++) {
 						if (reservationList[i] != null && reservationList[i].getName().equals(reservationName)
-								&& reservationList[i].getPhoneNumber().equals(reservationPhoneNumber)) {
+								&& reservationList[i].getNumber().equals(reservationPhoneNumber)) {
 							break;
 						} else if (reservationList[i] != null && reservationList[i].getName().equals(reservationName)) {
 
 						} else if (reservationList[i] != null
-								&& reservationList[i].getPhoneNumber().equals(reservationPhoneNumber)) {
+								&& reservationList[i].getNumber().equals(reservationPhoneNumber)) {
 
 						} else {/*
 								 * if (reservationList[i] == null ||
@@ -589,7 +589,7 @@ public class Desk extends Employee {
 
 /*
  * public class Hotel { public static int roomCount = 80; public static
- * ReservationPerson[] reservationList = new ReservationPerson[roomCount];
+ * Customer[] reservationList = new Customer[roomCount];
  * public static RoomInfo[][] RF = RoomInfo.totalRoom(); public static int
  * totalAmount[] = new int[4];
  * 
@@ -640,7 +640,7 @@ public class Desk extends Employee {
  * System.out.print("연락처: "); String phoneNumber = scan.next();
  * System.out.print("방 타입[싱글/더블]: ");
  * 
- * reservationList[index] = new ReservationPerson(guestName, phoneNumber, "예약");
+ * reservationList[index] = new Customer(guestName, phoneNumber, "예약");
  * 
  * String roomType = scan.next(); // 싱글방 출력 if (roomType.equals("싱글")) {
  * System.out.
@@ -756,7 +756,7 @@ public class Desk extends Employee {
  * scan.next(); System.out.print("연락처: "); phoneNumber = scan.next();
  * System.out.print("방 타입[싱글/더블]: ");
  * 
- * reservationList[index] = new ReservationPerson(guestName, phoneNumber, "예약");
+ * reservationList[index] = new Customer(guestName, phoneNumber, "예약");
  * 
  * roomType = scan.next(); if (roomType.equals("싱글")) { System.out.
  * println("------------------------ 현재 비어있는 방 ------------------------"); for
