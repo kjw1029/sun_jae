@@ -1,3 +1,4 @@
+/*
 public class ReservationPerson {
 	private String name; // 고객이름
 	private String phoneNumber; // 고객 전화번호
@@ -45,3 +46,4 @@ public class ReservationPerson {
 		this.phoneNumber = phoneNumber;
 	}
 }
+*/

@@ -1,18 +1,18 @@
 
 
 public class ReservationList {
-	private ReservationPerson reservationPerson;
+	private Customer reservationPerson;
 
-	public ReservationList(ReservationPerson reservationPerson) {
+	public ReservationList(Customer reservationPerson) {
 		super();
 		this.reservationPerson = reservationPerson;
 	}
 
-	public ReservationPerson getReservationPerson() {
+	public Customer getReservationPerson() {
 		return reservationPerson;
 	}
 
-	public void setReservationPerson(ReservationPerson reservationPerson) {
+	public void setReservationPerson(Customer reservationPerson) {
 		this.reservationPerson = reservationPerson;
 	} 
 	
