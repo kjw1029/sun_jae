@@ -10,7 +10,7 @@ public class LoginProgram {
 	public static boolean isDebug = true;
 
 	private static Person manager = new Manager("매니저", "매니저1234");
-	private static Person desk = new Desk("데스크", "데스1234");
+	private static Person desk = new Desk("데스크", "데스크1234");
 	private static Person cleaner = new Cleaner("청소", "청소1234");
 	private static Person[] customer = new Customer[80];
 
@@ -42,6 +42,7 @@ public class LoginProgram {
 					int Asellect = scanner.nextInt();
 
 					if (Asellect == 1) {
+//						chkoutInfo = ((Manager)manager).hotel(false);
 						chkoutInfo = hotel.hotel(false);
 					} else if (Asellect == 2) {
 //						workInAndOutSet(loggedInUser.isAdmin(), loggedInUser.getUsername());
@@ -65,7 +66,9 @@ public class LoginProgram {
 
 					int Dsellect = scanner.nextInt();
 					if (Dsellect == 1) {
-						chkoutInfo = hotel.hotel(false);
+						chkoutInfo = ((Desk)desk).hotel(false);
+						
+//						chkoutInfo = hotel.hotel(false);
 					} else if (Dsellect == 2) {
 //						workInAndOutSet(loggedInUser.isAdmin(), loggedInUser.getUsername()); // 데스크 청소용 출퇴근
 
