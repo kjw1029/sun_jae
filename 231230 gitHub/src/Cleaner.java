@@ -7,7 +7,7 @@ public class Cleaner extends Employee {
 
 	@Override
 	public void LoginStart() {
-		System.out.println("cleaner method");
+		System.out.println("1.청소관리  2. 출퇴근 인증 3.로그아웃 ");
 	}
 
 }

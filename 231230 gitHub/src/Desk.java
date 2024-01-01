@@ -7,7 +7,7 @@ public class Desk extends Employee {
 
 	@Override
 	public void LoginStart() {
-		System.out.println("desk method");
+		System.out.println("1.예약관리  2. 출퇴근 인증 3.로그아웃 ");
 	}
 
 }
