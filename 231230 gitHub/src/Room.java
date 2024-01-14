@@ -5,6 +5,7 @@ public class Room {
 	private String roomtype; // 싱글, 더블
 	private String roomStatus; // 체크인, 체크아웃, 워크인, 예약, 숙박, 예약완료
 	private boolean isClean; // 청소유무 체크
+	private Customer customer;
 	
 	public Room (int unit, int price, String roomtype, String roomStatus, boolean isClean) {
 		super();
@@ -15,6 +16,18 @@ public class Room {
 		this.isClean = isClean;
 	}
 	
+
+	public Room(int unit, int price, String roomtype, String roomStatus, boolean isClean, Customer customer) {
+		super();
+		this.unit = unit;
+		this.price = price;
+		this.roomtype = roomtype;
+		this.roomStatus = roomStatus;
+		this.isClean = isClean;
+		this.customer = customer;
+	}
+
+
 	public static Room[][] totalRoom() {
 		Room[][] Room = new Room[4][20];
 		for (int i = 0; i < Room.length; i++) {
@@ -69,6 +82,15 @@ public class Room {
 	public void setClean(boolean isClean) {
 		this.isClean = isClean;
 	}
-	
+
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
 	
 }
