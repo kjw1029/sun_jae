@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		LoginProgram program = new LoginProgram();
-		program.start();
+		program.loginMenu();
 //        Scanner scan = new Scanner(System.in);
 //
 //        System.out.println("이름");
