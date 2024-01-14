@@ -7,6 +7,10 @@ public class Employee extends Person implements EmployeeManage {
         super(name, number);
     }
 
+    public Employee() {
+
+    }
+
     @Override
     public void login(String id, String password) {
         Employee temp = new Employee(id, password);
