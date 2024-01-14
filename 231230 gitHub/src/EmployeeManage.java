@@ -1,6 +1,6 @@
 public interface EmployeeManage {
     // 로그인
-    boolean login(Employee employee);
+    void login(String id, String password);
     // 로그아웃
     void logout(Employee employee);
     // 출퇴근
