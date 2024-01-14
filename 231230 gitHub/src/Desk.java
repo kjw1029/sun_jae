@@ -5,9 +5,9 @@ public class Desk extends Person implements IDeskManage{
 	public Desk() {
 		super();
 	}
-	
+
 	@Override
-	void reservation(Room room, Customer cus) {
+	public void reservation(Room room, Customer cus) {
 //		this(); // 왜 생성자가 안되는거죠? 알려주세요..
 		if (this.unit == roomunit.getUnit()) {
 			if (roomunit.getRoomstatus().equals("예약")) {
@@ -21,7 +21,7 @@ public class Desk extends Person implements IDeskManage{
 	}
 	
 	@Override
-	void cancelReservation(Room[][] room, Customer cus) {
+	public void cancelReservation(Room[][] room, Customer cus) {
 		for (int i = 0; i < room.length; i++) {
 			for (int j = 0; j < room[i].length; j++) {
 				if(room[i][j].getCustomer ==cus.getunit) {
@@ -35,7 +35,7 @@ public class Desk extends Person implements IDeskManage{
 	}
 	
 	@Override
-	void checkIn (Room[][] room, Customer cus) {
+	public void checkReservation(Room[][] room, Customer cus) {
 		for (int i = 0; i < room.length; i++) {
 			for (int j = 0; j < room[i].length; j++) {
 				if(room[i][j].getCustomer ==cus.getunit) {
@@ -48,7 +48,7 @@ public class Desk extends Person implements IDeskManage{
 	}
 	
 	@Override
-	Customer findCustomer(List<Customer> list, String name, String phone) {
+	public Customer findCustomer(List<Customer> list, String name, String phone) {
 		Iterator<Customer> iterator = list.iterator();
 		while (iterator.hasNext()) {
 			if (iterator.next().getName().equals(name) && iterator.next().getPhone(phone)) {
@@ -58,12 +58,30 @@ public class Desk extends Person implements IDeskManage{
 	}
 	
 	@Override
-	int listAccess(List<Customer> list, Customer cus) {
+	public int listAccess(List<Customer> list, Customer cus) {
 		for (int i = 0; i < list.size(); i++) {
 			if(list.contains(cus)) {
 				return i;
 			}
 		}return -1;
+	}
+
+	@Override
+	public void checkOut(Customer cus) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void walkeIn(Customer cus) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void checkIn(Room[][] room, Customer cus) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
