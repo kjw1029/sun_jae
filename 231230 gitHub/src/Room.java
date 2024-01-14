@@ -1,3 +1,4 @@
+import java.util.Objects;
 
 public class Room {
 	private int unit; // 방호수
@@ -6,11 +7,7 @@ public class Room {
 	private String roomStatus; // 체크인, 체크아웃, 워크인, 예약, 숙박, 예약완료
 	private boolean isClean; // 청소유무 체크
 	private Customer customer;
-
-	public Room(String roomtype) {
-		this.roomtype = roomtype;
-	}
-
+	
 	public Room (int unit, int price, String roomtype, String roomStatus, boolean isClean) {
 		super();
 		this.unit = unit;
@@ -96,5 +93,27 @@ public class Room {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(roomtype, unit);
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Room other = (Room) obj;
+		return Objects.equals(roomtype, other.roomtype) && unit == other.unit;
+	}
+
+
+	
 	
 }

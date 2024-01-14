@@ -1,10 +1,11 @@
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
 public class DeskProgram {
 	public static Room[][] room = Room.totalRoom();
-
+	public static List<Customer> list = new ArrayList();
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		Desk desk = new Desk();
@@ -33,16 +34,12 @@ public class DeskProgram {
 
 				System.out.println("호실 입력");
 				int unit = scan.nextInt();
-				
 				if (roomType.equals("싱글")) {
 					for (int i = 0; i < room.length; i++) {
 						for (int j = 0; j < room[i].length; j++) {
-							if (unit == room[i][j].getUnit() && room[i][j].getRoomtype().endsWith("싱글")) {
+							if (unit == room[i][j].getUnit() && room[i][j].getRoomtype().equals("싱글")) {
 								Customer cus = new Customer(guestName, phoneNumber);
 								desk.reservation(room[i][j], cus);
-								break;
-							}else {
-								System.out.println("룸타입과 호수가 일치하지않습니다.");
 								break;
 							}
 
