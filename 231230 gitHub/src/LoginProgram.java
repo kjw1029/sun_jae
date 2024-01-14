@@ -24,6 +24,7 @@ public class LoginProgram {
 
             switch (input) {
                 case 1:
+                    // test
 //                    수정해주세요
 //                    테스트테스트
 //                    desk.printMenu();
