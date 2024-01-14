@@ -2,7 +2,7 @@ public interface EmployeeManage {
     // 로그인
     void login(String id, String password);
     // 로그아웃
-    void logout(int input);
+    void logout();
     // 출퇴근
     void commute(int input);
     // 직원 접근

@@ -9,6 +9,15 @@ public class LoginProgram {
             switch (input) {
                 case 1:
                     break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    start();
+                    break;
+                default:
+                    System.out.println("로그인 실패. 사용자 정보를 확인하세요.");
             }
         }
     }

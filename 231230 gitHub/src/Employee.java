@@ -1,9 +1,14 @@
 public class Employee extends Person implements EmployeeManage {
     private String inWorkTime;
     private String outWorkTime;
+    private LoginProgram loginProgram = new LoginProgram();
 
     public Employee(String name, String number) {
         super(name, number);
+    }
+
+    public Employee() {
+
     }
 
 
@@ -24,9 +29,12 @@ public class Employee extends Person implements EmployeeManage {
     }
 
     @Override
-    public void logout(int input) {
+    public void logout() {
+       loginProgram.start();
+
 
     }
+
 
     @Override
     public void commute(int input) {
