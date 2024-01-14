@@ -12,6 +12,8 @@ public class Employee extends Person implements EmployeeManage {
         Employee temp = new Employee(id, password);
         if (temp.equals(new Employee("매니저", "매니저1234"))) {
             System.out.println("매니저 로그인");
+            LoginProgram manager = new LoginProgram();
+            manager.managerLogin();
         } else if (temp.equals(new Employee("데스크", "데스크1234"))) {
             System.out.println("데스크 로그인");
         } else if (temp.equals(new Employee("청소", "청소1234"))) {
@@ -22,7 +24,7 @@ public class Employee extends Person implements EmployeeManage {
     }
 
     @Override
-    public void logout(Employee employee) {
+    public void logout(int input) {
 
     }
 
