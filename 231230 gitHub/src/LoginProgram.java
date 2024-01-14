@@ -13,9 +13,6 @@ public class LoginProgram {
                 e.login(e.getName(), e.getNumber());
             } catch (Exception e) {
                 System.out.println("올바르지 못한 값을 입력하여 로그아웃 처리됩니다.\n재로그인해 주십시오.");
-//                e.printStackTrace();
-//                scan.nextLine();
-//                start();
             }
         }
     }
@@ -27,7 +24,8 @@ public class LoginProgram {
 
             switch (input) {
                 case 1:
-                    desk.printMenu();
+//                    수정해주세요
+//                    desk.printMenu();
                     break;
                 case 2:
                     break;

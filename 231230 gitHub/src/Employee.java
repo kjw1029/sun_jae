@@ -29,12 +29,12 @@ public class Employee extends Person implements EmployeeManage {
         }
     }
 
-    @Override
-    public void logout() {
-       loginProgram.start();
-
-
-    }
+//    @Override
+//    public void logout() {
+//       loginProgram.start();
+//
+//
+//    }
 
 
     @Override

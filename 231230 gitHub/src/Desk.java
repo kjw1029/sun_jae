@@ -2,7 +2,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Desk extends Person implements IDeskManage {
-	public Room[][] room = Room.totalRoom();
+	public static Room[][] room = Room.totalRoom();
 
 	public Desk() {
 		super();
