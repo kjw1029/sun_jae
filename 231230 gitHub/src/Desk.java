@@ -8,11 +8,10 @@ public class Desk extends Person implements IDeskManage{
 
 	@Override
 	public void reservation(Room room, Customer cus) {
-//		this(); // 왜 생성자가 안되는거죠? 알려주세요..
-		if (this.unit == roomunit.getUnit()) {
-			if (roomunit.getRoomstatus().equals("예약")) {
+		if (cus.getUnit() == room.getUnit()) {
+			if (room.getRoomStatus().equals("예약")) {
 				System.out.println("예약되어있는 방입니다.");
-			} else if (roomunit.getRoomstatus().equals("빈방")) {
+			} else if (room.getRoomStatus().equals("빈방")) {
 				System.out.println("예약 완료");
 			} else {
 				System.out.println("잘못된 입력입니다.");
@@ -24,10 +23,10 @@ public class Desk extends Person implements IDeskManage{
 	public void cancelReservation(Room[][] room, Customer cus) {
 		for (int i = 0; i < room.length; i++) {
 			for (int j = 0; j < room[i].length; j++) {
-				if(room[i][j].getCustomer ==cus.getunit) {
-					System.out.println(room[i][j].getUnit());
-					room[i][j].setRoomstatus("빈방");
-					cus.setunit(0);
+				if(room[i][j].getCustomer().getUnit() ==cus.getUnit()) {
+					System.out.println(room[i][j].getUnit()+"취소");
+					room[i][j].setRoomStatus("빈방");
+					cus.setUnit(0);
 				}
 			}
 		}
@@ -38,10 +37,9 @@ public class Desk extends Person implements IDeskManage{
 	public void checkReservation(Room[][] room, Customer cus) {
 		for (int i = 0; i < room.length; i++) {
 			for (int j = 0; j < room[i].length; j++) {
-				if(room[i][j].getCustomer ==cus.getunit) {
-					System.out.println(room[i][j].getUnit());
-					room[i][j].setRoomstatus("빈방");
-					cus.setunit(0);
+				if(room[i][j].getCustomer().getUnit() ==cus.getUnit()) {
+					System.out.println(room[i][j].getUnit()+ "예약된방");
+					
 				}
 			}
 		}
@@ -51,7 +49,7 @@ public class Desk extends Person implements IDeskManage{
 	public Customer findCustomer(List<Customer> list, String name, String phone) {
 		Iterator<Customer> iterator = list.iterator();
 		while (iterator.hasNext()) {
-			if (iterator.next().getName().equals(name) && iterator.next().getPhone(phone)) {
+			if (iterator.next().getName().equals(name) && iterator.next().getNumber().equals(phone)) {
 				return iterator.next();
 			}
 		} return null;
