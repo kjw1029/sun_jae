@@ -6,7 +6,11 @@ public class Room {
 	private String roomStatus; // 체크인, 체크아웃, 워크인, 예약, 숙박, 예약완료
 	private boolean isClean; // 청소유무 체크
 	private Customer customer;
-	
+
+	public Room(String roomtype) {
+		this.roomtype = roomtype;
+	}
+
 	public Room (int unit, int price, String roomtype, String roomStatus, boolean isClean) {
 		super();
 		this.unit = unit;

@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class LoginProgram {
     private Employee e;
+    private Desk desk = new Desk();
 
     private Scanner scan = new Scanner(System.in);
 
@@ -26,6 +27,7 @@ public class LoginProgram {
 
             switch (input) {
                 case 1:
+                    desk.printMenu();
                     break;
                 case 2:
                     break;
